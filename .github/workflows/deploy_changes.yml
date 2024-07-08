@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
       - name: connect to FTP
         env: 
-          DEST_PATH: "/path/to/"
+          DEST_PATH: "path/to/"
           SECRET_USER: ${{ secrets.UserName }}
           SECRET_PASS: ${{ secrets.Password }}
           FTP_SERVER: "mydebian"
