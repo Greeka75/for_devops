@@ -10,13 +10,13 @@ jobs:
         uses: actions/checkout@v4
       - name: connect to FTP
         env: 
-          SRC_PATH: "/home/mikis/my_project/for_devops"
-          DEST_PATH: "/home/mikis/path/to/"
+          SRC_PATH: "/path/from/"
+          DEST_PATH: "/path/to/"
           SECRET_USER: ${{ secrets.UserName }}
           SECRET_PASS: ${{ secrets.Password }}
         run: |
           cd $SRC_PATH
-          ftp -i ftp://$SECRET_USER:$SECRET_PASS@mydebian<<END_TASK
+          ftp -i ftp://$SECRET_USER:$SECRET_PASS@ftp.com<<END_TASK
           cd $DEST_PATH
           mput *
           exit
@@ -26,5 +26,3 @@ jobs:
         run: |
           git log > VERSION.txt
           git branch -v >> VERSION.txt
-
-
