@@ -2,7 +2,7 @@ name: Deploy changes to FTP
 on:
   push:
     branches: [ "main" ]
- jobs:
+jobs:
   copy_to_FTP:
     - name: Copy to FTP
 	runs-on: self-hosted
