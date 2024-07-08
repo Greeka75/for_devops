@@ -9,18 +9,15 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
       - name: connect to FTP
-      - shell: bash
         env: 
           SECRET_USER: ${{ secrets.UserName }}
           SECRET_PASS: ${{ secrets.Password }}
         run: pwd >> /tmp/sdjfakfjhak
 
       - name: Get git info 
-      - shell: bash
         run: |
           git log > VERSION.txt
           git branch -v >> VERSION.txt
-
 #          ftp ftp://"$env:SECRET_USER":"$env:SECRET_PASS"@ftp.com<<END_TASK
 #          mput *
 #          exit
