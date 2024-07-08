@@ -11,18 +11,18 @@ jobs:
       - name: connect to FTP
       - shell: bash
         env: 
-            SECRET_USER: ${{ secrets.UserName }}
-            SECRET_PASS: ${{ secrets.Password }}
+          SECRET_USER: ${{ secrets.UserName }}
+          SECRET_PASS: ${{ secrets.Password }}
+        run: pwd >> /tmp/sdjfakfjhak
+
+      - name: Get git info 
+      - shell: bash
         run: |
-	    pwd >> /tmp/sdjfakfjhak
+          git log > VERSION.txt
+          git branch -v >> VERSION.txt
 
 #          ftp ftp://"$env:SECRET_USER":"$env:SECRET_PASS"@ftp.com<<END_TASK
 #          mput *
 #          exit
 #          END_TASK
-        - name: Get git info 
-        - shell: bash
-          run: |
-          git log > VERSION.txt
-          git branch -v >> VERSION.txt
 
