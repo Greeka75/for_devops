@@ -13,8 +13,9 @@ jobs:
           DEST_PATH: "/path/to/"
           SECRET_USER: ${{ secrets.UserName }}
           SECRET_PASS: ${{ secrets.Password }}
+          FTP_SERVER: "mydebian"
         run: |
-          ftp -i ftp://$SECRET_USER:$SECRET_PASS@ftp.com<<END_TASK
+          ftp -i ftp://$SECRET_USER:$SECRET_PASS@$FTP_SERVER<<END_TASK
           cd $DEST_PATH
           mput *
           exit
